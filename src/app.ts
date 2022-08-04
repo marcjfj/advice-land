@@ -108,7 +108,6 @@ export const setupTable = async (scene: THREE.Scene) => {
   const loader = new GLTFLoader().setPath('/table/');
   const gltf: GLTF = await loadModel(loader, 'scene.gltf');
   gltf.scene.traverse(function (node) {
-    console.log(node.type);
     if (node.type === 'Mesh') {
       node.castShadow = true;
       node.receiveShadow = true;
@@ -116,7 +115,6 @@ export const setupTable = async (scene: THREE.Scene) => {
   });
 
   gltf.scene.rotateY(Math.PI / 2);
-  gltf.scene.name = 'TABLE';
 
   scene.add(gltf.scene);
   return gltf.scene;

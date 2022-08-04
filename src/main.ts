@@ -32,10 +32,9 @@ const init = async () => {
   // load initial scene
   setupOrbitControls(camera, renderer);
   setupLights(scene);
+  setupTable(scene);
   setupFloorAndWalls(scene);
   setupChalkboard(scene);
-  setupChalkboard(scene);
-  setupTable(scene);
   const [dice, text] = await Promise.all([setupDice(scene), setupText(scene)]);
   // dice roll animation
   const { mixer, clock, playDiceRoll } = diceAnimation(dice);
