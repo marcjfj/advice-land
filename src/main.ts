@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css';
 import * as THREE from 'three';
 import {
   setupRenderer,
@@ -24,23 +24,24 @@ const init = async () => {
   const camera = setupCamera();
   const scene = new THREE.Scene();
   const renderer = setupRenderer();
-  document.body.appendChild( renderer.domElement );
+  document.body.appendChild(renderer.domElement);
 
   const render = () => {
     renderer.render(scene, camera);
-  }
+  };
   // load initial scene
   setupOrbitControls(camera, renderer);
   setupLights(scene);
   setupFloorAndWalls(scene);
-  setupTable(scene);
   setupChalkboard(scene);
+  setupChalkboard(scene);
+  setupTable(scene);
   const [dice, text] = await Promise.all([setupDice(scene), setupText(scene)]);
   // dice roll animation
-  const {mixer, clock, playDiceRoll} = diceAnimation(scene, dice);
+  const { mixer, clock, playDiceRoll } = diceAnimation(dice);
   // main animation loop
-  renderer.setAnimationLoop( animationLoop );
-  
+  renderer.setAnimationLoop(animationLoop);
+
   const pointer = setupPointer();
   const raycaster = new THREE.Raycaster();
 
@@ -49,25 +50,22 @@ const init = async () => {
     playDiceRoll();
     text.text = await fetchAdvice();
   });
-  
-  function animationLoop( _time:number ) {
+
+  function animationLoop(_time: number) {
     // Update animation mixer for dice roll
-    if ( mixer && clock ) {
+    if (mixer && clock) {
       const delta = clock.getDelta();
-      mixer.update( delta );
+      mixer.update(delta);
     }
     // watch for intersection with dice
-    raycaster.setFromCamera( pointer, camera );
-    const intersected = raycaster.intersectObjects( scene.children, true );
+    raycaster.setFromCamera(pointer, camera);
+    const intersected = raycaster.intersectObjects(scene.children, true);
     intersectionWatcher('DIE', intersected);
-  
+
     render();
-  
   }
   // Handler window resize events
   resizeHandler(renderer, camera, render);
-
-  
-}
+};
 
 init();
