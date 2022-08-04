@@ -216,7 +216,7 @@ export const setupPointer = () => {
   
 }
 
-//  CLICK HANDLER
+// CLICK HANDLER
 export const setupClickHandler = (scene:THREE.Scene, pointer:THREE.Vec2, camera:THREE.Camera, raycaster:THREE.Raycaster, clickCallback:()=>void ) => {
   document.addEventListener('click', async (e) => {
     raycaster.setFromCamera(pointer, camera);
@@ -229,6 +229,7 @@ export const setupClickHandler = (scene:THREE.Scene, pointer:THREE.Vec2, camera:
   })
 }
 
+// REQUEST HANDLER
 export const fetchAdvice = async () => {
   const request = await fetch('https://api.adviceslip.com/advice', {
     cache: 'no-cache',
@@ -237,6 +238,7 @@ export const fetchAdvice = async () => {
   return response.slip.advice;
 }
 
+// MOUSEOVER HANDLER
 export const intersectionWatcher = (query:string, intersected:any[]) => {
   if ( intersected.length > 0 ) {
     if (isChildOf('DIE', intersected[ 0 ].object)) {
@@ -250,6 +252,7 @@ export const intersectionWatcher = (query:string, intersected:any[]) => {
   
 }
 
+// RESIZE HANDLER
 export const resizeHandler = (renderer:THREE.WebGLRenderer, camera:THREE.PerspectiveCamera, render:()=>void) => {
   window.addEventListener('resize', () => {
     const width = window.innerWidth;
