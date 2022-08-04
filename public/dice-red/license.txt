@@ -1,0 +1,11 @@
+Model Information:
+* title:	Dice
+* source:	https://sketchfab.com/3d-models/dice-ed620b87a6b04747a9738cbfc8c8fdf4
+* author:	Salim Rached (https://sketchfab.com/Salim.Rached)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Dice" (https://sketchfab.com/3d-models/dice-ed620b87a6b04747a9738cbfc8c8fdf4) by Salim Rached (https://sketchfab.com/Salim.Rached) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
